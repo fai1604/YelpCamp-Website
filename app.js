@@ -17,21 +17,13 @@ var commentRoutes = require("./routes/comments"),
 
 // seedDB();
 // mongoose.connect("mongodb://localhost:27017/yelp_camp_v11deployed", {useNewUrlParser: true});
-mongoose.connect("mongodb+srv://fai:fai160400@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).catch(err => console.log(err))
+// mongoose.connect("mongodb+srv://fai:fai160400@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// }).catch(err => console.log(err))
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://dbUser:<password>@cluster0.n5zv5.mongodb.net/<dbname>?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
+mongoose.connect(process.env.DATABASEURL);
 
-// mongodb+srv://fai:<fai160400>@cluster0.iqudq.mongodb.net/<fai>?retryWrites=true&w=majority
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
