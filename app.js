@@ -16,11 +16,11 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index");
 
 // seedDB();
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v11deployed", {useNewUrlParser: true});
-// mongoose.connect("mongodb+srv://dbUser:dbUser@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
+// mongoose.connect("mongodb://localhost:27017/yelp_camp_v11deployed", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://fai:fai160400@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://dbUser:<password>@cluster0.n5zv5.mongodb.net/<dbname>?retryWrites=true&w=majority";
