@@ -17,12 +17,13 @@ var commentRoutes = require("./routes/comments"),
 
 // seedDB();
 // mongoose.connect("mongodb://localhost:27017/yelp_camp_v11deployed", {useNewUrlParser: true});
-// mongoose.connect("mongodb+srv://fai:fai160400@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
+// mongoose.connect("HEORK", {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true
 // }).catch(err => console.log(err))
 
-mongoose.connect(process.env.DATABASEURL);
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v11deployed"
+mongoose.connect(url);
 
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
