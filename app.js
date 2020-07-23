@@ -20,7 +20,7 @@ var commentRoutes = require("./routes/comments"),
 mongoose.connect("mongodb+srv://fai:fai160400@cluster0.n5zv5.mongodb.net/yelp_camp_v11deployed?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
+}).catch(err => console.log(err))
 
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://dbUser:<password>@cluster0.n5zv5.mongodb.net/<dbname>?retryWrites=true&w=majority";
@@ -65,6 +65,7 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
 
-app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Server has started!")
-})
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+    console.log("Server has started!");
+});
